@@ -51,9 +51,62 @@ nginx\[engine x\]是一个HTTP和反向代理服务器，一个邮件代理服�
 
 * 使用一个外部HTTP验证服务器和连接重定向到一个内部SMTP服务器进行用户验证。
 
-* 验证方法：
+* 认证方法：
 
- - 搜索
+  * POP3：USER/PASS, APOP, AUTH LOGIN/PLAIN/CRAM-MD5;
+  * IMAP: LOGIN, AUTH LOGIN/PLAIN/CRAM-MD5;
+  * SMTP: AUTH LOGIN/PLAIN/CRAM-MD5
+
+* SSL支持；
+* STARTTLS和STLS支持。
+
+## TCP/UDP代理服务器特征
+
+ - TCP和UDP的常用代理；
+
+ - TCP的SSL和TLS SNI支持。
+
+ - 负载均衡和容错；
+
+ - 基于客户端地址的访问控制；
+
+ - 依赖客户端地址执行不同的方法；
+
+ - 限制来自同一个地址的同时连接或请求的数量；
+
+ - 访问日志格式化，缓冲日志写入，快速日志旋转和系统日志记录；
+
+ - 基于IP的地理定位；
+
+ - A/B测试；
+
+ - njs脚本语言。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
