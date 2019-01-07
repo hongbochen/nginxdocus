@@ -85,17 +85,34 @@ nginx\[engine x\]是一个HTTP和反向代理服务器，一个邮件代理服�
 
 ## 架构和扩展性
 
- - 一个主进程和多个工作进程；工作进行运行在一个无特权的用户下。
+* 一个主进程和多个工作进程；工作进行运行在一个无特权的用户下；
+* 灵活的配置；
+* 一个可执行文件的重新配置与更新不需要中断客户端服务；
+* 支持kqueue\(Free BSD 4.1+\), epoll\(Linux 2.6+\), /dev/poll\(Solaris 7 11/99+\)，event ports\(Solaris 10\)，select和poll；
+* 多个kqueue特征的支持包括EV_CLEAR, EV_DISABLE\(暂时关闭事件\), NOTE_LOWAT, EV_\_EOF，可用数据数量，错误码；
+* 多个epoll特征的支持包括WPOLLRDHUP\(Linux 2.6.17+, glibc 2.8+\)和EPOLLEXCLUSIVE\(Linux 4.5+, glibc 2.24+\)；
+* sendfile\(Free BSD 3.1+,Linux 2.2+, maxOS 10.5+\), sendfile64\(Linux 2.4.21+\)和sendfilev\(Solaris 8 7/01 +\)支持；
+* File AIO\(Free BSD 4.3+, Linux 2.6.22+\)；
+* DIRECTID\(FreeBSD 4.4+, Linux 2.4+, Solaris 2.6+, macOS\);
+* 接收过滤器\(FreeBSD 4.1+, NetBSD 5.0+\)和TCP\_DEFER\_ACCEPT \(Linux 2.4+\)支持；
+* 10000个不活跃的HTTP keep-alive连接消耗大约2.5M内存；
+* 数据复制操作被保持在一个最小值。
 
+## 测试的OS和平台
 
+ - FreeBSD 3 — 11 / i386; FreeBSD 5 — 11 / amd64;
 
+ - Linux 2.2 — 4 / i386; Linux 2.6 — 4 / amd64; Linux 3 — 4 / armv6l, armv7l, aarch64, ppc64le;
 
+ - Solaris 9 / i386, sun4u; Solaris 10 / i386, amd64, sun4v;
 
+ - AIX 7.1 / powerpc;
 
+ - HP-UX 11.31 / ia64;
 
+ - macOS / ppc, i386;
 
-
-
+ - Windows XP, Windows Server 2003.
 
 
 
